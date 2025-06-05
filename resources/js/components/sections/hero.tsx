@@ -98,7 +98,7 @@ export default function Hero() {
                         <Link href="/contact">
                             <Button
                                 variant="outline"
-                                className="border-white text-foreground p-6 hover:bg-transparent hover:border-secondary"
+                                className="text-white border bg-transparent p-6 shadow boreder-gray-100"
                             >
                                 Get a Quote
                             </Button>
