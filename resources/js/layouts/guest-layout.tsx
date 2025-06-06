@@ -1,9 +1,12 @@
 import { ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Head } from "@inertiajs/react";
-import { FiMenu, FiX, FiHome, FiInfo, FiPackage, FiPhone } from "react-icons/fi";
+import { Head, usePage } from "@inertiajs/react";
+import { FiMenu, FiX, FiHome, FiInfo, FiPhone } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
+import { MdOutlineHomeRepairService } from "react-icons/md";
+import { AiOutlineProduct } from "react-icons/ai";
+import { LuGrid2X2Check } from "react-icons/lu";
 
 type GuestLayoutProps = {
     children: ReactNode;
@@ -16,13 +19,18 @@ export default function GuestLayout({ children, className }: GuestLayoutProps) {
     const navItems = [
         { label: "Home", href: "/", icon: <FiHome /> },
         { label: "About", href: "/about", icon: <FiInfo /> },
-        { label: "Products", href: "/products", icon: <FiPackage /> },
+        { label: "Products", href: "/products", icon: <AiOutlineProduct /> },
+        { label: "Services", href: "/services", icon: <MdOutlineHomeRepairService /> },
+        { label: "Solar Calculator", href: "/solar-calculator", icon: <LuGrid2X2Check /> },
         { label: "Contact", href: "/contact", icon: <FiPhone /> },
     ];
 
+    const { props } = usePage();
+    const title = typeof props.title === "string" ? props.title : "AndOne Solar";
+
     return (
         <>
-            <Head>
+            <Head title={title}>
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link
                     href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
@@ -44,12 +52,12 @@ export default function GuestLayout({ children, className }: GuestLayoutProps) {
                         </div>
 
                         {/* Center Nav (desktop only) */}
-                        <nav className="hidden md:flex gap-8 font-medium tracking-wide items-center">
+                        <nav className="hidden lg:flex gap-8 font-medium tracking-wide items-center">
                             {navItems.map(({ label, href, icon }) => (
                                 <a
                                     key={label}
                                     href={href}
-                                    className="flex items-center gap-2 text-foreground hover:text-primary transition"
+                                    className="flex items-center gap-2 text-gray-800 hover:text-primary transition"
                                 >
                                     {icon}
                                     {label}
