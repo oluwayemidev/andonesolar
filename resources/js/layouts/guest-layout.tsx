@@ -7,6 +7,16 @@ import { Button } from "@/components/ui/button";
 import { MdOutlineHomeRepairService } from "react-icons/md";
 import { AiOutlineProduct } from "react-icons/ai";
 import { LuGrid2X2Check } from "react-icons/lu";
+import {
+    Facebook,
+    Twitter,
+    Instagram,
+    Linkedin,
+    Mail,
+    MapPin,
+    Phone,
+    Clock,
+} from "lucide-react";
 
 type GuestLayoutProps = {
     children: ReactNode;
@@ -18,10 +28,10 @@ export default function GuestLayout({ children, className }: GuestLayoutProps) {
 
     const navItems = [
         { label: "Home", href: "/", icon: <FiHome /> },
-        { label: "About", href: "/about", icon: <FiInfo /> },
         { label: "Products", href: "/products", icon: <AiOutlineProduct /> },
-        { label: "Services", href: "/services", icon: <MdOutlineHomeRepairService /> },
+        { label: "Solutions", href: "/solutions", icon: <MdOutlineHomeRepairService /> },
         { label: "Solar Calculator", href: "/solar-calculator", icon: <LuGrid2X2Check /> },
+        { label: "About", href: "/about", icon: <FiInfo /> },
         { label: "Contact", href: "/contact", icon: <FiPhone /> },
     ];
 
@@ -118,9 +128,80 @@ export default function GuestLayout({ children, className }: GuestLayoutProps) {
                 </motion.div>
 
                 {/* Footer */}
-                <footer className="bg-secondary text-secondary-foreground mt-16 py-8 text-center">
-                    <div className="container mx-auto text-sm tracking-wide">
-                        <p>&copy; {new Date().getFullYear()} AndOne Solar. All rights reserved.</p>
+                <footer className="bg-gray-950 text-white py-10 px-6 md:px-12">
+                    <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 border-b border-gray-700 pb-10">
+                        {/* Column 1 */}
+                        <div>
+                            <div className="flex items-center gap-2 text-primary font-bold text-xl">
+                                <img
+                                    src="/images/logo.png"
+                                    alt="AndOne Solar Logo"
+                                    className="h-8 w-auto"
+                                />
+                            </div>
+                            <p className="text-gray-400 mt-4 text-sm leading-relaxed">
+                                Leading provider of high efficiency solar solutions for residential and
+                                commercial applications.
+                            </p>
+                            <div className="flex gap-4 mt-6 text-gray-300">
+                                <a href="#"><Facebook size={18} /></a>
+                                <a href="#"><Twitter size={18} /></a>
+                                <a href="#"><Instagram size={18} /></a>
+                                <a href="#"><Linkedin size={18} /></a>
+                            </div>
+                        </div>
+
+                        {/* Column 2 */}
+                        <div>
+                            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
+                            <ul className="space-y-2 text-sm text-gray-400">
+                                {navItems.map(({ label, href }) => (
+                                    <li key={label}>
+                                        <a
+                                            href={href}
+                                            className="hover:text-primary transition"
+                                        >
+                                            {label}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Column 3 */}
+                        <div>
+                            <h4 className="font-semibold text-white mb-4">Products</h4>
+                            <ul className="space-y-2 text-sm text-gray-400">
+                                <li><a href="#">Solar Panels</a></li>
+                                <li><a href="#">Inverters</a></li>
+                                <li><a href="#">Battery Storage</a></li>
+                                <li><a href="#">Solar Kits</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        </div>
+
+                        {/* Column 4 */}
+                        <div>
+                            <h4 className="font-semibold text-white mb-4">Contact Us</h4>
+                            <ul className="space-y-3 text-sm text-gray-400">
+                                <li className="flex items-start gap-2"><MapPin size={16} /> 123 Solar Street, Sunny City, SC 12345</li>
+                                <li className="flex items-center gap-2"><Phone size={16} /> (555) 123-4567</li>
+                                <li className="flex items-center gap-2"><Mail size={16} /> info@solarpower.com</li>
+                                <li className="flex items-center gap-2"><Clock size={16} /> Mon-Fri: 9AM–6PM</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Bottom Bar */}
+                    <div className="max-w-7xl mx-auto mt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 pt-6">
+                        <p>© {
+                            new Date().getFullYear()
+                        } AndOne Solar. All rights reserved.</p>
+                        <div className="flex gap-4 mt-4 md:mt-0">
+                            <a href="#" className="hover:text-white">Privacy Policy</a>
+                            <a href="#" className="hover:text-white">Terms of Service</a>
+                            <a href="#" className="hover:text-white">Sitemap</a>
+                        </div>
                     </div>
                 </footer>
             </main>

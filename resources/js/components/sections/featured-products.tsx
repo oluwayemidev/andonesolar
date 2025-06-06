@@ -75,6 +75,7 @@ export default function FeaturedProducts() {
                 </motion.div>
 
                 {/* Carousel */}
+                {/* Carousel */}
                 <Carousel opts={{ loop: true }} className="w-full">
                     <CarouselContent className="flex gap-6 px-2">
                         {products.map((product, index) => (
@@ -101,13 +102,15 @@ export default function FeaturedProducts() {
                                         className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
 
-                                    {/* Overlay CTA */}
-                                    <div className="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-md text-white p-4 z-10">
+                                    {/* Hover CTA Overlay */}
+                                    <div className="absolute bottom-0 left-0 w-full p-4 bg-black/40 backdrop-blur-md text-white z-10
+                        opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0
+                        transition-all duration-300 ease-in-out">
                                         <h3 className="text-lg font-semibold">{product.title}</h3>
                                         <p className="text-sm text-white/80">{product.description}</p>
                                         <Button
                                             variant="outline"
-                                            className="mt-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50"
+                                            className="mt-2 border-white/30 bg-white/10 text-white hover:bg-white/10 hover:border-white/50"
                                         >
                                             View Product
                                         </Button>
@@ -116,9 +119,10 @@ export default function FeaturedProducts() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious className="bg-gray-200 hover:bg-gray-300 text-gray-700" />
-                    <CarouselNext className="bg-gray-200 hover:bg-gray-300 text-gray-700" />
+                    <CarouselPrevious className="bg-gray-200 hover:bg-gray-300 text-gray-700 mx-15" />
+                    <CarouselNext className="bg-gray-200 hover:bg-gray-300 text-gray-700 mx-15" />
                 </Carousel>
+
 
                 {/* Call to Action */}
                 <motion.div
@@ -135,7 +139,7 @@ export default function FeaturedProducts() {
                         Contact us today for a free consultation and quote.
                     </p>
                     <a href="/contact">
-                        <Button className="mt-4 px-8 py-3 bg-primary text-white hover:opacity-90 transition">
+                        <Button className="mt-4  px-8 py-3 bg-primary text-white hover:opacity-90 transition">
                             Get a Quote
                         </Button>
                     </a>

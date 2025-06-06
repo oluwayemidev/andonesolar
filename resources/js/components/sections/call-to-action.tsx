@@ -1,7 +1,13 @@
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
 export default function LeadFormSection() {
     return (
@@ -37,7 +43,17 @@ export default function LeadFormSection() {
                     <form className="space-y-4">
                         <Input type="text" placeholder="Full Name" required className="bg-transparent p-6 text-white hover:opacity-90 backdrop-blur-md border-gray-50/20 border-1 hover:bg-gray-600/35 hover:backdrop-blur-xl" />
                         <Input type="email" placeholder="Email Address" required className="bg-transparent p-6 text-white hover:opacity-90 backdrop-blur-md border-gray-50/20 border-1 hover:bg-gray-600/35 hover:backdrop-blur-xl" />
-                        <Textarea placeholder="Your Message or Requirements" rows={4} className="bg-transparent p-6 text-white hover:opacity-90 backdrop-blur-md border-gray-50/20 border-1 hover:bg-gray-600/35 hover:backdrop-blur-xl" />
+                        <Input placeholder="+1234567890" type="tel" className="bg-transparent p-6 text-white hover:opacity-90 backdrop-blur-md border-gray-50/20 border-1 hover:bg-gray-600/35 hover:backdrop-blur-xl" />
+                        <Select>
+                            <SelectTrigger className="bg-transparent p-6 text-white hover:opacity-90 backdrop-blur-md border-gray-50/20 border-1 hover:bg-gray-600/35 hover:backdrop-blur-xl">
+                                <SelectValue placeholder="I’m interested in:" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="residential">Residential Solar</SelectItem>
+                                <SelectItem value="commercial">Commercial Solar</SelectItem>
+                                <SelectItem value="storage">Battery Storage</SelectItem>
+                            </SelectContent>
+                        </Select>
                         <Button type="submit" className="w-full md:w-auto bg-primary">
                             Request Quote
                         </Button>

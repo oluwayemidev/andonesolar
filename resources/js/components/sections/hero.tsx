@@ -127,7 +127,7 @@ export default function Hero() {
                     key={slides[activeIndex].image}
                     src={slides[activeIndex].image}
                     alt="Solar Panel"
-                    className="w-full rounded-xl shadow-lg  max-w-3xl object-cover h-full md:h-[400px] lg:h-[500px]"
+                    className="w-full lg:w-[50%] rounded-xl shadow-lg  max-w-3xl object-cover h-full md:h-[400px] lg:h-[500px]"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
